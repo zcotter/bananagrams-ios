@@ -24,8 +24,6 @@
 		95EA00921A4B971900A7D473 /* wordlist_filter_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00881A4B971900A7D473 /* wordlist_filter_3.txt */; };
 		95EA00931A4B971900A7D473 /* wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00891A4B971900A7D473 /* wordlist.txt */; };
 		95EA00961A4B973A00A7D473 /* TextReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00941A4B973A00A7D473 /* TextReader.swift */; };
-		95EA00971A4B973A00A7D473 /* WordIndexReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00951A4B973A00A7D473 /* WordIndexReader.swift */; };
-		95EA00A21A4B9ABD00A7D473 /* WordIndexReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00951A4B973A00A7D473 /* WordIndexReader.swift */; };
 		95EA00A31A4B9ABD00A7D473 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00801A4B971900A7D473 /* Board.swift */; };
 		95EA00A41A4B9ABD00A7D473 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00811A4B971900A7D473 /* WordDictionary.swift */; };
 		95EA00A51A4B9ABD00A7D473 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00821A4B971900A7D473 /* Letter.swift */; };
@@ -68,7 +66,6 @@
 		95EA00881A4B971900A7D473 /* wordlist_filter_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist_filter_3.txt; sourceTree = "<group>"; };
 		95EA00891A4B971900A7D473 /* wordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist.txt; sourceTree = "<group>"; };
 		95EA00941A4B973A00A7D473 /* TextReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextReader.swift; sourceTree = "<group>"; };
-		95EA00951A4B973A00A7D473 /* WordIndexReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordIndexReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +107,6 @@
 		95EA005D1A4B96B600A7D473 /* bananagrams-ios */ = {
 			isa = PBXGroup;
 			children = (
-				95EA00951A4B973A00A7D473 /* WordIndexReader.swift */,
 				95EA00801A4B971900A7D473 /* Board.swift */,
 				95EA00811A4B971900A7D473 /* WordDictionary.swift */,
 				95EA00821A4B971900A7D473 /* Letter.swift */,
@@ -268,7 +264,6 @@
 				95EA00961A4B973A00A7D473 /* TextReader.swift in Sources */,
 				95EA008C1A4B971900A7D473 /* Letter.swift in Sources */,
 				95EA00611A4B96B600A7D473 /* AppDelegate.swift in Sources */,
-				95EA00971A4B973A00A7D473 /* WordIndexReader.swift in Sources */,
 				95EA008A1A4B971900A7D473 /* Board.swift in Sources */,
 				95EA008D1A4B971900A7D473 /* LetterList.swift in Sources */,
 			);
@@ -285,7 +280,6 @@
 				95EA00A91A4B9ABD00A7D473 /* AppDelegate.swift in Sources */,
 				95EA00A81A4B9ABD00A7D473 /* TextReader.swift in Sources */,
 				95EA00A51A4B9ABD00A7D473 /* Letter.swift in Sources */,
-				95EA00A21A4B9ABD00A7D473 /* WordIndexReader.swift in Sources */,
 				95EA00A31A4B9ABD00A7D473 /* Board.swift in Sources */,
 				95EA00A61A4B9ABD00A7D473 /* LetterList.swift in Sources */,
 			);

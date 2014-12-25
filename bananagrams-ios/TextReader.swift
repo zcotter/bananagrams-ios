@@ -34,7 +34,6 @@ class TextReader {
     
     /// Return next line, or nil on EOF.
     func nextLine() -> String? {
-        
         if reachedEnd {
             return nil
         }
@@ -74,6 +73,16 @@ class TextReader {
         fileHandle.seekToFileOffset(0)
         buffer.length = 0
         reachedEnd = false
+    }
+    
+    func jumpToByte(location : UInt64){
+        fileHandle.seekToFileOffset(location)
+        buffer.length = Int(location)
+        reachedEnd = false
+    }
+    
+    func jumpToChar(location: Int){
+        jumpToByte(UInt64(location))
     }
     
     /// Close the underlying file. No reading must be done after calling this method.

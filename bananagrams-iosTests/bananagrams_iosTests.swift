@@ -22,16 +22,10 @@ class bananagrams_iosTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-        
-    }
-    
     func testDictionary() {
         let dict = WordDictionary()
         XCTAssert(dict.search("apple") == true, "Find word")
-        XCTAssert(dict.search("fake") == false, "find fake")
+        XCTAssert(dict.search("notaword") == false, "find fake")
     }
     
     func testPerformanceExample() {
