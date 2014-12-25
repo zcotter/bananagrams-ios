@@ -25,13 +25,17 @@ class bananagrams_iosTests: XCTestCase {
     func testDictionary() {
         let dict = WordDictionary()
         XCTAssert(dict.search("apple") == true, "Find word")
+        XCTAssert(dict.search("orange") == true, "Find word")
+        XCTAssert(dict.search("banana") == true, "Find word")
         XCTAssert(dict.search("notaword") == false, "find fake")
     }
     
-    func testPerformanceExample() {
+    func testDictionaryPerformance() {
         // This is an example of a performance test case.
         self.measureBlock() {
-            // Put the code you want to measure the time of here.
+            let dict = WordDictionary()
+            XCTAssert(dict.search("nonzoological") == true, "Find worst case word")
+            XCTAssert(dict.search("nonzoologicallical") == false, "Find bad case non-word")
         }
     }
     

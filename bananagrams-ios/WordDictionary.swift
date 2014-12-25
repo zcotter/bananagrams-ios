@@ -23,13 +23,23 @@ class WordDictionary {
         self.wordlistReader = TextReader(path: NSBundle.mainBundle().pathForResource("wordlist", ofType: "txt")!)
     }
     
+    func rewindAll(){
+        self.firstLetterIndexReader.rewind()
+        self.secondLetterIndexReader.rewind()
+        self.thirdLetterIndexReader.rewind()
+        self.wordlistReader.rewind()
+    }
+    
     func search(term : String) -> Bool {
+        
+        rewindAll()
         
         let firstLetter = term.substringWithRange(Range(start: term.startIndex,
                                                         end: advance(term.startIndex, 1)))
         var nextIndex = NSNotFound
         
         for line in self.firstLetterIndexReader {
+            //println("Line: \(line)")
             if(line.hasPrefix(firstLetter)){
                 nextIndex = line.componentsSeparatedByString(":")[1].toInt()!
                 break
@@ -46,6 +56,7 @@ class WordDictionary {
         self.secondLetterIndexReader.jumpToChar(nextIndex)
         nextIndex = NSNotFound
         for line in self.secondLetterIndexReader{
+            //println("Line: \(line)")
             if(line.hasPrefix(twoLetters)){
                 nextIndex = line.componentsSeparatedByString(":")[1].toInt()!
                 break
@@ -61,6 +72,7 @@ class WordDictionary {
         self.thirdLetterIndexReader.jumpToChar(nextIndex)
         nextIndex = NSNotFound
         for line in self.thirdLetterIndexReader{
+            //println("Line: \(line)")
             if(line.hasPrefix(threeLetters)){
                 nextIndex = line.componentsSeparatedByString(":")[1].toInt()!
                 break
@@ -74,6 +86,7 @@ class WordDictionary {
         self.wordlistReader.jumpToChar(nextIndex)
         self.wordlistReader.nextLine()
         for line in self.wordlistReader{
+            //println("Line: \(line)")
             if(line.isEmpty || line.hasPrefix(threeLetters)){
                 if(line == term && !line.isEmpty){
                     return true
