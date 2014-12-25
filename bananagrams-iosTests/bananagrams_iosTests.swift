@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import bananagrams_ios
 
 class bananagrams_iosTests: XCTestCase {
     
@@ -24,6 +25,13 @@ class bananagrams_iosTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
+        
+    }
+    
+    func testDictionary() {
+        let dict = WordDictionary()
+        XCTAssert(dict.search("apple") == true, "Find word")
+        XCTAssert(dict.search("fake") == false, "find fake")
     }
     
     func testPerformanceExample() {

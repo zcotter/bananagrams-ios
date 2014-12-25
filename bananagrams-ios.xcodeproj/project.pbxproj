@@ -13,6 +13,27 @@
 		95EA00681A4B96B600A7D473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00671A4B96B600A7D473 /* Images.xcassets */; };
 		95EA006B1A4B96B600A7D473 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00691A4B96B600A7D473 /* LaunchScreen.xib */; };
 		95EA00771A4B96B600A7D473 /* bananagrams_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00761A4B96B600A7D473 /* bananagrams_iosTests.swift */; };
+		95EA008A1A4B971900A7D473 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00801A4B971900A7D473 /* Board.swift */; };
+		95EA008B1A4B971900A7D473 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00811A4B971900A7D473 /* WordDictionary.swift */; };
+		95EA008C1A4B971900A7D473 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00821A4B971900A7D473 /* Letter.swift */; };
+		95EA008D1A4B971900A7D473 /* LetterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00831A4B971900A7D473 /* LetterList.swift */; };
+		95EA008E1A4B971900A7D473 /* PlacedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00841A4B971900A7D473 /* PlacedLetter.swift */; };
+		95EA008F1A4B971900A7D473 /* test_wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00851A4B971900A7D473 /* test_wordlist.txt */; };
+		95EA00901A4B971900A7D473 /* wordlist_filter_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00861A4B971900A7D473 /* wordlist_filter_1.txt */; };
+		95EA00911A4B971900A7D473 /* wordlist_filter_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00871A4B971900A7D473 /* wordlist_filter_2.txt */; };
+		95EA00921A4B971900A7D473 /* wordlist_filter_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00881A4B971900A7D473 /* wordlist_filter_3.txt */; };
+		95EA00931A4B971900A7D473 /* wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00891A4B971900A7D473 /* wordlist.txt */; };
+		95EA00961A4B973A00A7D473 /* TextReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00941A4B973A00A7D473 /* TextReader.swift */; };
+		95EA00971A4B973A00A7D473 /* WordIndexReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00951A4B973A00A7D473 /* WordIndexReader.swift */; };
+		95EA00A21A4B9ABD00A7D473 /* WordIndexReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00951A4B973A00A7D473 /* WordIndexReader.swift */; };
+		95EA00A31A4B9ABD00A7D473 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00801A4B971900A7D473 /* Board.swift */; };
+		95EA00A41A4B9ABD00A7D473 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00811A4B971900A7D473 /* WordDictionary.swift */; };
+		95EA00A51A4B9ABD00A7D473 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00821A4B971900A7D473 /* Letter.swift */; };
+		95EA00A61A4B9ABD00A7D473 /* LetterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00831A4B971900A7D473 /* LetterList.swift */; };
+		95EA00A71A4B9ABD00A7D473 /* PlacedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00841A4B971900A7D473 /* PlacedLetter.swift */; };
+		95EA00A81A4B9ABD00A7D473 /* TextReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00941A4B973A00A7D473 /* TextReader.swift */; };
+		95EA00A91A4B9ABD00A7D473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00601A4B96B600A7D473 /* AppDelegate.swift */; };
+		95EA00AA1A4B9ABD00A7D473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00621A4B96B600A7D473 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +57,18 @@
 		95EA00701A4B96B600A7D473 /* bananagrams-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bananagrams-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA00751A4B96B600A7D473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EA00761A4B96B600A7D473 /* bananagrams_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bananagrams_iosTests.swift; sourceTree = "<group>"; };
+		95EA00801A4B971900A7D473 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		95EA00811A4B971900A7D473 /* WordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDictionary.swift; sourceTree = "<group>"; };
+		95EA00821A4B971900A7D473 /* Letter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		95EA00831A4B971900A7D473 /* LetterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterList.swift; sourceTree = "<group>"; };
+		95EA00841A4B971900A7D473 /* PlacedLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacedLetter.swift; sourceTree = "<group>"; };
+		95EA00851A4B971900A7D473 /* test_wordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_wordlist.txt; sourceTree = "<group>"; };
+		95EA00861A4B971900A7D473 /* wordlist_filter_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist_filter_1.txt; sourceTree = "<group>"; };
+		95EA00871A4B971900A7D473 /* wordlist_filter_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist_filter_2.txt; sourceTree = "<group>"; };
+		95EA00881A4B971900A7D473 /* wordlist_filter_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist_filter_3.txt; sourceTree = "<group>"; };
+		95EA00891A4B971900A7D473 /* wordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist.txt; sourceTree = "<group>"; };
+		95EA00941A4B973A00A7D473 /* TextReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextReader.swift; sourceTree = "<group>"; };
+		95EA00951A4B973A00A7D473 /* WordIndexReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordIndexReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +110,13 @@
 		95EA005D1A4B96B600A7D473 /* bananagrams-ios */ = {
 			isa = PBXGroup;
 			children = (
+				95EA00951A4B973A00A7D473 /* WordIndexReader.swift */,
+				95EA00801A4B971900A7D473 /* Board.swift */,
+				95EA00811A4B971900A7D473 /* WordDictionary.swift */,
+				95EA00821A4B971900A7D473 /* Letter.swift */,
+				95EA00831A4B971900A7D473 /* LetterList.swift */,
+				95EA00841A4B971900A7D473 /* PlacedLetter.swift */,
+				95EA00941A4B973A00A7D473 /* TextReader.swift */,
 				95EA00601A4B96B600A7D473 /* AppDelegate.swift */,
 				95EA00621A4B96B600A7D473 /* ViewController.swift */,
 				95EA00641A4B96B600A7D473 /* Main.storyboard */,
@@ -90,6 +130,11 @@
 		95EA005E1A4B96B600A7D473 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95EA00851A4B971900A7D473 /* test_wordlist.txt */,
+				95EA00861A4B971900A7D473 /* wordlist_filter_1.txt */,
+				95EA00871A4B971900A7D473 /* wordlist_filter_2.txt */,
+				95EA00881A4B971900A7D473 /* wordlist_filter_3.txt */,
+				95EA00891A4B971900A7D473 /* wordlist.txt */,
 				95EA005F1A4B96B600A7D473 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -192,9 +237,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95EA00901A4B971900A7D473 /* wordlist_filter_1.txt in Resources */,
 				95EA00661A4B96B600A7D473 /* Main.storyboard in Resources */,
+				95EA00931A4B971900A7D473 /* wordlist.txt in Resources */,
 				95EA006B1A4B96B600A7D473 /* LaunchScreen.xib in Resources */,
+				95EA00921A4B971900A7D473 /* wordlist_filter_3.txt in Resources */,
+				95EA008F1A4B971900A7D473 /* test_wordlist.txt in Resources */,
 				95EA00681A4B96B600A7D473 /* Images.xcassets in Resources */,
+				95EA00911A4B971900A7D473 /* wordlist_filter_2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +263,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EA00631A4B96B600A7D473 /* ViewController.swift in Sources */,
+				95EA008E1A4B971900A7D473 /* PlacedLetter.swift in Sources */,
+				95EA008B1A4B971900A7D473 /* WordDictionary.swift in Sources */,
+				95EA00961A4B973A00A7D473 /* TextReader.swift in Sources */,
+				95EA008C1A4B971900A7D473 /* Letter.swift in Sources */,
 				95EA00611A4B96B600A7D473 /* AppDelegate.swift in Sources */,
+				95EA00971A4B973A00A7D473 /* WordIndexReader.swift in Sources */,
+				95EA008A1A4B971900A7D473 /* Board.swift in Sources */,
+				95EA008D1A4B971900A7D473 /* LetterList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +278,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95EA00AA1A4B9ABD00A7D473 /* ViewController.swift in Sources */,
 				95EA00771A4B96B600A7D473 /* bananagrams_iosTests.swift in Sources */,
+				95EA00A71A4B9ABD00A7D473 /* PlacedLetter.swift in Sources */,
+				95EA00A41A4B9ABD00A7D473 /* WordDictionary.swift in Sources */,
+				95EA00A91A4B9ABD00A7D473 /* AppDelegate.swift in Sources */,
+				95EA00A81A4B9ABD00A7D473 /* TextReader.swift in Sources */,
+				95EA00A51A4B9ABD00A7D473 /* Letter.swift in Sources */,
+				95EA00A21A4B9ABD00A7D473 /* WordIndexReader.swift in Sources */,
+				95EA00A31A4B9ABD00A7D473 /* Board.swift in Sources */,
+				95EA00A61A4B9ABD00A7D473 /* LetterList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
