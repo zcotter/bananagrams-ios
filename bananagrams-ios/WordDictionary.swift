@@ -10,81 +10,63 @@ import Foundation
 
 class WordDictionary {
     
-    let firstLetterIndexReader: TextReader
-    let secondLetterIndexReader: TextReader
-    let thirdLetterIndexReader: TextReader
+    let indexReaders: [TextReader]
     let wordlistReader: TextReader
     
     init(){
-        let path : String = NSBundle.mainBundle().pathForResource("wordlist_filter_1", ofType: "txt")!
-        self.firstLetterIndexReader = TextReader(path: path)
-        self.secondLetterIndexReader = TextReader(path: NSBundle.mainBundle().pathForResource("wordlist_filter_2", ofType: "txt")!)
-        self.thirdLetterIndexReader = TextReader(path: NSBundle.mainBundle().pathForResource("wordlist_filter_3", ofType: "txt")!)
+        indexReaders = []
+        for depth in 1...3 {
+            let path = NSBundle.mainBundle().pathForResource("wordlist_filter_\(depth)", ofType: "txt")!
+            self.indexReaders.append(TextReader(path: path))
+        }
         self.wordlistReader = TextReader(path: NSBundle.mainBundle().pathForResource("wordlist", ofType: "txt")!)
     }
     
-    func rewindAll(){
-        self.firstLetterIndexReader.rewind()
-        self.secondLetterIndexReader.rewind()
-        self.thirdLetterIndexReader.rewind()
+    private func rewindAll(){
+        for reader in indexReaders{
+            reader.rewind()
+        }
         self.wordlistReader.rewind()
     }
     
+    private func findNextIndex(depth: Int, prefix: String, startIndex: Int) -> Int {
+        var reader = self.indexReaders[depth]
+        reader.jumpToChar(startIndex)
+        for line in reader {
+            if(line.hasPrefix(prefix)){
+                return line.componentsSeparatedByString(":")[1].toInt()!
+            }
+        }
+        return NSNotFound
+    }
+    
+    private func findStartPositionFromIndexes(term: String) -> Int {
+        var nextIndex = 0
+        for depth in 1...3 {
+            let prefix = term.substringWithRange(Range(start: term.startIndex,
+                end: advance(term.startIndex,
+                    depth)))
+            nextIndex = findNextIndex(depth - 1, prefix: prefix, startIndex: nextIndex)
+            if(nextIndex == NSNotFound){
+                return NSNotFound
+            }
+        }
+        return nextIndex
+    }
+    
     func search(term : String) -> Bool {
-        
         rewindAll()
         var term = term.lowercaseString
+        var startIndex = findStartPositionFromIndexes(term)
         
-        let firstLetter = term.substringWithRange(Range(start: term.startIndex,
-                                                        end: advance(term.startIndex, 1)))
-        var nextIndex = NSNotFound
-        
-        for line in self.firstLetterIndexReader {
-            //println("Line: \(line)")
-            if(line.hasPrefix(firstLetter)){
-                nextIndex = line.componentsSeparatedByString(":")[1].toInt()!
-                break
-            }
-        }
-        
-        if(nextIndex == NSNotFound){
+        if startIndex == NSNotFound {
             return false
-        }
-        
-        let twoLetters = term.substringWithRange(Range(start: term.startIndex,
-                                                       end: advance(term.startIndex, 2)))
-
-        self.secondLetterIndexReader.jumpToChar(nextIndex)
-        nextIndex = NSNotFound
-        for line in self.secondLetterIndexReader{
-            //println("Line: \(line)")
-            if(line.hasPrefix(twoLetters)){
-                nextIndex = line.componentsSeparatedByString(":")[1].toInt()!
-                break
-            }
-        }
-        
-        if(nextIndex == NSNotFound){
-            return false;
         }
         
         let threeLetters = term.substringWithRange(Range(start: term.startIndex,
-                                                         end: advance(term.startIndex, 3)))
-        self.thirdLetterIndexReader.jumpToChar(nextIndex)
-        nextIndex = NSNotFound
-        for line in self.thirdLetterIndexReader{
-            //println("Line: \(line)")
-            if(line.hasPrefix(threeLetters)){
-                nextIndex = line.componentsSeparatedByString(":")[1].toInt()!
-                break
-            }
-        }
-        
-        if(nextIndex == NSNotFound){
-            return false
-        }
-        
-        self.wordlistReader.jumpToChar(nextIndex)
+                                                         end: advance(term.startIndex,
+                                                                      3)))
+        self.wordlistReader.jumpToChar(startIndex)
         self.wordlistReader.nextLine()
         for line in self.wordlistReader{
             //println("Line: \(line)")
