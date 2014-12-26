@@ -8,13 +8,16 @@
 
 import Foundation
 
-class PlacedLetter : Letter, Hashable{
+class PlacedLetter : Letter {
     var position: (x:Int, y:Int)
     
     override var hashValue : Int {
-        var hashcode: Int = super.hashValue
-        hashcode += 3 * hashcode + position.x
-        hashcode += 5 * hashcode + position.y
+        
+        //var hashcode: Int = super.hashValue
+        var hashcode: Int
+        hashcode = super.hashValue
+        hashcode += 3 &* hashcode &+ position.x
+        hashcode += 5 &* hashcode &+ position.y
         return hashcode
     }
 
@@ -31,5 +34,12 @@ func ==(left: PlacedLetter, right: PlacedLetter) -> Bool {
     return left.letter == right.letter &&
            left.position.x == right.position.x &&
            left.position.y == right.position.y
+}
+
+func !=(left: PlacedLetter, right: PlacedLetter) -> Bool {
+    return left.letter != right.letter ||
+        left.position.x != right.position.x
+    ||
+        left.position.y != right.position.y
 }
 

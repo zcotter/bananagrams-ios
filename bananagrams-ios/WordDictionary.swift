@@ -33,6 +33,7 @@ class WordDictionary {
     func search(term : String) -> Bool {
         
         rewindAll()
+        var term = term.lowercaseString
         
         let firstLetter = term.substringWithRange(Range(start: term.startIndex,
                                                         end: advance(term.startIndex, 1)))

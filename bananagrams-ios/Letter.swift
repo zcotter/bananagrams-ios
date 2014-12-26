@@ -9,7 +9,7 @@
 import Foundation
 
 class Letter : Hashable {
-    var letter : Character
+    var letter : String
     var points : Int {
         get {
             switch self.letter {
@@ -38,7 +38,7 @@ class Letter : Hashable {
     }
     
     init(letter : Character){
-        self.letter = letter
+        self.letter = String(letter).uppercaseString
     }
     
     //TODO draw
