@@ -25,4 +25,39 @@ class Board {
     init(){
         placedLetters = [PlacedLetter: Bool]()
     }
+    
+    func canPlaceLetter(position: (x: Int, y: Int)) -> Bool{
+        for letter in placedLetters.keys {
+            if letter.position.x == position.x && letter.position.y == position.y {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func placeLetter(letter: PlacedLetter) -> Bool {
+        if canPlaceLetter(letter.position) {
+            placedLetters[letter] = false
+            // TODO validate
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func getAdjacents(position: (x: Int, y: Int)) -> [PlacedLetter] {
+        var adjacents : [PlacedLetter] = []
+        for letter in placedLetters.keys {
+            let xDiff = abs(position.x - letter.position.x)
+            let yDiff = abs(position.y - letter.position.y)
+            if ((xDiff == 1 && yDiff == 0) || (xDiff == 0 && yDiff == 1)) {
+                adjacents.append(letter)
+            }
+            if(countElements(adjacents) == 4){
+                break
+            }
+        }
+        return adjacents
+    }
 }

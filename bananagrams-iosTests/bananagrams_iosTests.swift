@@ -124,7 +124,58 @@ class bananagrams_iosTests: XCTestCase {
         }
         XCTAssert(list.capacity == 20)
         XCTAssert(list.length == 0)
+    }
+    
+    func testBoard(){
+        var board = Board()
+        XCTAssert(board.canPlaceLetter((x: 0, y: 0)) == true)
+        XCTAssert(board.canPlaceLetter((x: 1, y: 1)) == true)
+        XCTAssert(board.placeLetter(PlacedLetter(position: (x: 1, y: 1),
+                                                 letter: "a")) == true)
+        XCTAssert(board.canPlaceLetter((x: 0, y: 0)) == true)
+        XCTAssert(board.canPlaceLetter((x: 1, y: 1)) == false)
         
+        //O00000
+        //orange
+        //Oe0000
+        //Od0000
+        //O00000
+        board = Board()
+        let o = PlacedLetter(position: (x: 0, y: 1), letter: "o")
+        let r = PlacedLetter(position: (x: 1, y: 1), letter: "r")
+        let a = PlacedLetter(position: (x: 2, y: 1), letter: "a")
+        let n = PlacedLetter(position: (x: 3, y: 1), letter: "n")
+        let g = PlacedLetter(position: (x: 4, y: 1), letter: "g")
+        let e = PlacedLetter(position: (x: 5, y: 1), letter: "e")
+        
+        let eRed = PlacedLetter(position: (x: 1, y: 2), letter: "e")
+        let d = PlacedLetter(position: (x: 1, y: 3), letter: "d")
+        XCTAssert(board.placeLetter(o) == true)
+        XCTAssert(board.placeLetter(r) == true)
+        XCTAssert(board.placeLetter(a) == true)
+        XCTAssert(board.placeLetter(n) == true)
+        XCTAssert(board.placeLetter(g) == true)
+        XCTAssert(board.placeLetter(e) == true)
+        XCTAssert(board.placeLetter(eRed) == true)
+        XCTAssert(board.placeLetter(d) == true)
+
+        XCTAssert(compareArrays(board.getAdjacents(o.position), b: [r]))
+        XCTAssert(compareArrays(board.getAdjacents(r.position), b: [o, eRed, a]))
+        XCTAssert(compareArrays(board.getAdjacents(a.position), b: [r, n]))
+        XCTAssert(compareArrays(board.getAdjacents(n.position), b: [a, g]))
+        XCTAssert(compareArrays(board.getAdjacents(g.position), b: [n, e]))
+        XCTAssert(compareArrays(board.getAdjacents(e.position), b: [g]))
+        XCTAssert(compareArrays(board.getAdjacents(eRed.position), b: [r, d]))
+        XCTAssert(compareArrays(board.getAdjacents(d.position), b: [eRed]))
+    }
+
+    func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{
+        if(countElements(a) != countElements(b)){
+            return false
+        }
+        let aSet : NSSet = NSSet(array: a)
+        let bSet : NSSet = NSSet(array: b)
+        return aSet.isEqualToSet(bSet)
     }
     
     
