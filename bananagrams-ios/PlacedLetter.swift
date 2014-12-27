@@ -31,15 +31,10 @@ class PlacedLetter : Letter {
 }
 
 func ==(left: PlacedLetter, right: PlacedLetter) -> Bool {
-    return left.letter == right.letter &&
-           left.position.x == right.position.x &&
-           left.position.y == right.position.y
+    return left.hashValue == right.hashValue
 }
 
 func !=(left: PlacedLetter, right: PlacedLetter) -> Bool {
-    return left.letter != right.letter ||
-        left.position.x != right.position.x
-    ||
-        left.position.y != right.position.y
+    return left.hashValue != right.hashValue
 }
 

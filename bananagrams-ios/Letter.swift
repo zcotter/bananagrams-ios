@@ -45,5 +45,5 @@ class Letter : Hashable {
 }
 
 func ==(left: Letter, right: Letter) -> Bool {
-    return left.letter == right.letter
+    return left.hashValue == right.hashValue
 }
