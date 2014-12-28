@@ -45,6 +45,26 @@ class Board {
             return false
         }
     }
+
+    func getLetterAt(position: (x: Int, y: Int)) -> PlacedLetter? {
+        for letter in placedLetters.keys {
+            if letter.position.x == position.x && letter.position.y == position.y {
+                return letter
+            }
+        }
+        return nil
+    }
+
+    func remove(target : PlacedLetter) -> Bool {
+        if(placedLetters[target] != nil){
+            placedLetters[target] = nil
+            // TODO validate adjacents
+            return true
+        }
+        else {
+            return false
+        }
+    }
     
     func getAdjacents(position: (x: Int, y: Int)) -> [PlacedLetter] {
         var adjacents : [PlacedLetter] = []

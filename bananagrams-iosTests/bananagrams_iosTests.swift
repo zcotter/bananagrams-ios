@@ -141,15 +141,25 @@ class bananagrams_iosTests: XCTestCase {
         //Od0000
         //O00000
         board = Board()
-        let o = PlacedLetter(position: (x: 0, y: 1), letter: "o")
-        let r = PlacedLetter(position: (x: 1, y: 1), letter: "r")
-        let a = PlacedLetter(position: (x: 2, y: 1), letter: "a")
-        let n = PlacedLetter(position: (x: 3, y: 1), letter: "n")
-        let g = PlacedLetter(position: (x: 4, y: 1), letter: "g")
-        let e = PlacedLetter(position: (x: 5, y: 1), letter: "e")
+        let oPos = (x: 0, y: 1)
+        let rPos = (x: 1, y: 1)
+        let aPos = (x: 2, y: 1)
+        let nPos = (x: 3, y: 1)
+        let gPos = (x: 4, y: 1)
+        let ePos = (x: 5, y: 1)
+
+        let eRedPos = (x: 1, y: 2)
+        let dPos = (x: 1, y: 3)
+        let o = PlacedLetter(position: oPos, letter: "o")
+        let r = PlacedLetter(position: rPos, letter: "r")
+        let a = PlacedLetter(position: aPos, letter: "a")
+        let n = PlacedLetter(position: nPos, letter: "n")
+        let g = PlacedLetter(position: gPos, letter: "g")
+        let e = PlacedLetter(position: ePos, letter: "e")
         
-        let eRed = PlacedLetter(position: (x: 1, y: 2), letter: "e")
-        let d = PlacedLetter(position: (x: 1, y: 3), letter: "d")
+        let eRed = PlacedLetter(position: eRedPos, letter: "e")
+        let d = PlacedLetter(position: dPos, letter: "d")
+
         XCTAssert(board.placeLetter(o) == true)
         XCTAssert(board.placeLetter(r) == true)
         XCTAssert(board.placeLetter(a) == true)
@@ -167,6 +177,31 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(compareArrays(board.getAdjacents(e.position), b: [g]))
         XCTAssert(compareArrays(board.getAdjacents(eRed.position), b: [r, d]))
         XCTAssert(compareArrays(board.getAdjacents(d.position), b: [eRed]))
+
+        XCTAssert(board.getLetterAt(oPos) == o)
+        XCTAssert(board.getLetterAt(rPos) == r)
+        XCTAssert(board.getLetterAt(aPos) == a)
+        XCTAssert(board.getLetterAt(nPos) == n)
+        XCTAssert(board.getLetterAt(gPos) == g)
+        XCTAssert(board.getLetterAt(ePos) == e)
+        XCTAssert(board.getLetterAt(eRedPos) == eRed)
+        XCTAssert(board.getLetterAt(dPos) == d)
+
+
+        //removals
+        XCTAssert(board.remove(o) == true)
+        XCTAssert(board.remove(o) == false)
+        XCTAssert(board.remove(r) == true)
+        XCTAssert(board.remove(a) == true)
+        XCTAssert(board.remove(n) == true)
+        XCTAssert(board.remove(o) == false)
+        XCTAssert(board.remove(g) == true)
+        XCTAssert(board.remove(e) == true)
+        XCTAssert(board.remove(n) == false)
+        XCTAssert(board.remove(r) == false)
+        XCTAssert(board.remove(eRed) == true)
+        XCTAssert(board.remove(d) == true)
+
     }
 
     func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{
