@@ -28,6 +28,11 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(dict.search("orange") == true, "Find word")
         XCTAssert(dict.search("banana") == true, "Find word")
         XCTAssert(dict.search("notaword") == false, "find fake")
+
+        //Dictionary doesn't look for words shorter than 3 characters
+        XCTAssert(dict.search("no") == false)
+        XCTAssert(dict.search("yes") == true)
+        XCTAssert(dict.search("t") == false)
     }
     
     func testDictionaryPerformance() {
@@ -179,7 +184,7 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(compareArrays(board.getAdjacents(eRed.position), b: [r, d]))
         XCTAssert(compareArrays(board.getAdjacents(d.position), b: [eRed]))
         XCTAssert(compareArrays(board.placedLetters[d]!, b: [eRed]))
-        
+
         XCTAssert(board.getLetterAt(oPos) == o)
         XCTAssert(board.getLetterAt(rPos) == r)
         XCTAssert(board.getLetterAt(aPos) == a)
@@ -196,6 +201,9 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(board.validateWord([r, eRed, d]))
         XCTAssert(board.validateWord([n, r, a]) == false)
 
+        //validity
+        XCTAssert(board.valid)
+
         //removals
         XCTAssert(board.remove(o) == true)
         XCTAssert(board.remove(o) == false)
@@ -205,12 +213,12 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(board.remove(n) == true)
         XCTAssert(board.remove(o) == false)
         XCTAssert(board.remove(g) == true)
+        XCTAssert(arrayInclude(board.placedLetters[e]!, target: g) == false)
         XCTAssert(board.remove(e) == true)
         XCTAssert(board.remove(n) == false)
         XCTAssert(board.remove(r) == false)
         XCTAssert(board.remove(eRed) == true)
         XCTAssert(board.remove(d) == true)
-
     }
 
     func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{

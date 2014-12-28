@@ -55,6 +55,9 @@ class WordDictionary {
     }
     
     func search(term : String) -> Bool {
+        if(countElements(term) < 3){
+            return false
+        }
         rewindAll()
         var term = term.lowercaseString
         var startIndex = findStartPositionFromIndexes(term)
