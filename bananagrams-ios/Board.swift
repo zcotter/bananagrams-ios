@@ -21,9 +21,11 @@ class Board {
             return score
         }
     }
+    let dictionary: WordDictionary
     
     init(){
         placedLetters = [PlacedLetter: Bool]()
+        dictionary = WordDictionary()
     }
     
     func canPlaceLetter(position: (x: Int, y: Int)) -> Bool{
@@ -79,5 +81,14 @@ class Board {
             }
         }
         return adjacents
+    }
+
+    func validateWord(word: [PlacedLetter]) -> Bool {
+        //assume that word is present in order given
+        let term : String = word.map {
+            (var letter) -> String in
+            return letter.letter
+        }.reduce("", +)
+        return self.dictionary.search(term)
     }
 }

@@ -187,6 +187,12 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(board.getLetterAt(eRedPos) == eRed)
         XCTAssert(board.getLetterAt(dPos) == d)
 
+        //validate letter array
+        XCTAssert(board.validateWord([r, a, n]))
+        XCTAssert(board.validateWord([o, r, a, n, g, e]))
+        XCTAssert(board.validateWord([r, a, n, g, e]))
+        XCTAssert(board.validateWord([r, eRed, d]))
+        XCTAssert(board.validateWord([n, r, a]) == false)
 
         //removals
         XCTAssert(board.remove(o) == true)
