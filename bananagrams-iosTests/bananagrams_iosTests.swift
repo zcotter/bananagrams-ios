@@ -167,12 +167,16 @@ class bananagrams_iosTests: XCTestCase {
 
         XCTAssert(board.placeLetter(o) == true)
         XCTAssert(board.placeLetter(r) == true)
+        XCTAssert(board.valid == false)
         XCTAssert(board.placeLetter(a) == true)
         XCTAssert(board.placeLetter(n) == true)
         XCTAssert(board.placeLetter(g) == true)
         XCTAssert(board.placeLetter(e) == true)
+        XCTAssert(board.valid == true)
         XCTAssert(board.placeLetter(eRed) == true)
+        XCTAssert(board.valid == false)
         XCTAssert(board.placeLetter(d) == true)
+        XCTAssert(board.valid == true)
 
         XCTAssert(compareArrays(board.getAdjacents(o.position), b: [r]))
         XCTAssert(compareArrays(board.getAdjacents(r.position), b: [o, eRed, a]))

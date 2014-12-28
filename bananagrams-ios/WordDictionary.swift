@@ -72,7 +72,6 @@ class WordDictionary {
         self.wordlistReader.jumpToChar(startIndex)
         self.wordlistReader.nextLine()
         for line in self.wordlistReader{
-            //println("Line: \(line)")
             if(line.isEmpty || line.hasPrefix(threeLetters)){
                 if(line == term && !line.isEmpty){
                     return true

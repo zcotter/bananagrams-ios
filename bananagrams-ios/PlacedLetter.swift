@@ -28,6 +28,10 @@ class PlacedLetter : Letter {
         self.valid = false
         super.init(letter: letter)
     }
+
+    func description() -> String {
+        return "\(letter): (\(position.x), \(position.y)) " + (valid ? "valid" : "invalid")
+    }
     
     //TODO draw
 }

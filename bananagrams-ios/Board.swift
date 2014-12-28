@@ -21,6 +21,18 @@ class Board {
             return score
         }
     }
+    var valid: Bool {
+        get {
+            var valid = true
+            for letter in placedLetters.keys {
+                if(!letter.valid) {
+                    valid = false
+                }
+            }
+            return valid
+        }
+    }
+    
     let dictionary: WordDictionary
     
     init(){
@@ -44,12 +56,53 @@ class Board {
             for adjacent in adjacents {
                 placedLetters[adjacent]!.append(letter)
             }
-            // TODO validate
+            validateFrom(letter)
             return true
         }
         else {
             return false
         }
+    }
+
+    private func validateFrom(start: PlacedLetter){
+        let up = getContinuousFrom(start, direction: (xDiff: 0, yDiff: -1), accumulator: [])
+        let down = getContinuousFrom(start, direction: (xDiff: 0, yDiff: 1), accumulator: [])
+        let left = getContinuousFrom(start, direction: (xDiff: -1, yDiff: 0), accumulator: [])
+        let right = getContinuousFrom(start, direction: (xDiff: 1, yDiff: 0), accumulator: [])
+
+        let horizontal = reverse(left) + [start] + reverse(right)
+        let vertical = reverse(up) + [start] + reverse(down)
+
+        let horizontalValid = validateWord(horizontal)
+        let verticalValid = validateWord(vertical)
+
+        for letter in horizontal {
+            validateLetter(letter, validity: horizontalValid)
+        }
+        for letter in vertical {
+            validateLetter(letter, validity: verticalValid)
+        }
+        validateLetter(start, validity: (horizontalValid && verticalValid) ||
+                                        (horizontalValid && countElements(vertical) < 3) ||
+                                        (verticalValid && countElements(horizontal) < 3))
+    }
+
+    private func validateLetter(letter: PlacedLetter, validity: Bool) {
+        let adjacent = placedLetters[letter]!
+        placedLetters[letter] = nil
+        letter.valid = validity
+        placedLetters[letter] = adjacent
+    }
+
+    private func getContinuousFrom(start: PlacedLetter, direction: (xDiff: Int, yDiff: Int), accumulator: [PlacedLetter]) -> [PlacedLetter]{
+        let adjacents = placedLetters[start]!
+        for adjacent in adjacents {
+            if start.position.x + direction.xDiff == adjacent.position.x &&
+                start.position.y + direction.yDiff == adjacent.position.y {
+                    return getContinuousFrom(adjacent, direction: direction, accumulator: accumulator + [adjacent])
+            }
+        }
+        return accumulator
     }
 
     func getLetterAt(position: (x: Int, y: Int)) -> PlacedLetter? {
@@ -63,14 +116,19 @@ class Board {
 
     func remove(target : PlacedLetter) -> Bool {
         if(placedLetters[target] != nil){
-            let adjacents = placedLetters[target]!
+            var adjacents = placedLetters[target]!
             placedLetters[target] = nil
             for adjacent in adjacents {
                 placedLetters[adjacent] = placedLetters[adjacent]!.filter {
                     (letter) in letter != target
                 }
             }
-            // TODO validate adjacents
+            if(placedLetters[target] != nil){
+                adjacents = placedLetters[target]!
+                for adjacent in adjacents {
+                    validateFrom(adjacent)
+                }
+            }
             return true
         }
         else {
@@ -100,5 +158,13 @@ class Board {
             return letter.letter
         }.reduce("", +)
         return self.dictionary.search(term)
+    }
+
+    func description() -> String {
+        var description = ""
+        for letter in placedLetters.keys {
+            description += letter.description() + "\n"
+        }
+        return description
     }
 }
