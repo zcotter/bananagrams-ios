@@ -9,12 +9,12 @@
 import Foundation
 
 class Board {
-    var placedLetters: [PlacedLetter: Bool]
+    var placedLetters: [PlacedLetter: [PlacedLetter]]
     var score: Int {
         get {
             var score: Int = 0
-            for (letter, validity) in placedLetters{
-                if validity{
+            for letter in placedLetters.keys{
+                if letter.valid {
                     score += letter.points
                 }
             }
@@ -24,7 +24,7 @@ class Board {
     let dictionary: WordDictionary
     
     init(){
-        placedLetters = [PlacedLetter: Bool]()
+        placedLetters = [PlacedLetter: [PlacedLetter]]()
         dictionary = WordDictionary()
     }
     
@@ -39,7 +39,11 @@ class Board {
     
     func placeLetter(letter: PlacedLetter) -> Bool {
         if canPlaceLetter(letter.position) {
-            placedLetters[letter] = false
+            let adjacents = getAdjacents(letter.position)
+            placedLetters[letter] = adjacents
+            for adjacent in adjacents {
+                placedLetters[adjacent]!.append(letter)
+            }
             // TODO validate
             return true
         }
@@ -59,7 +63,13 @@ class Board {
 
     func remove(target : PlacedLetter) -> Bool {
         if(placedLetters[target] != nil){
+            let adjacents = placedLetters[target]!
             placedLetters[target] = nil
+            for adjacent in adjacents {
+                placedLetters[adjacent] = placedLetters[adjacent]!.filter {
+                    (letter) in letter != target
+                }
+            }
             // TODO validate adjacents
             return true
         }

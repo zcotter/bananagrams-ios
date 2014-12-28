@@ -10,6 +10,7 @@ import Foundation
 
 class PlacedLetter : Letter {
     var position: (x:Int, y:Int)
+    var valid: Bool
     
     override var hashValue : Int {
         
@@ -24,6 +25,7 @@ class PlacedLetter : Letter {
     
     init(position: (x: Int, y: Int), letter : Character){
         self.position = position
+        self.valid = false
         super.init(letter: letter)
     }
     

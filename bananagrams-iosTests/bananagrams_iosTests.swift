@@ -171,13 +171,15 @@ class bananagrams_iosTests: XCTestCase {
 
         XCTAssert(compareArrays(board.getAdjacents(o.position), b: [r]))
         XCTAssert(compareArrays(board.getAdjacents(r.position), b: [o, eRed, a]))
+        XCTAssert(compareArrays(board.placedLetters[r]!, b: [o, eRed, a]))
         XCTAssert(compareArrays(board.getAdjacents(a.position), b: [r, n]))
         XCTAssert(compareArrays(board.getAdjacents(n.position), b: [a, g]))
         XCTAssert(compareArrays(board.getAdjacents(g.position), b: [n, e]))
         XCTAssert(compareArrays(board.getAdjacents(e.position), b: [g]))
         XCTAssert(compareArrays(board.getAdjacents(eRed.position), b: [r, d]))
         XCTAssert(compareArrays(board.getAdjacents(d.position), b: [eRed]))
-
+        XCTAssert(compareArrays(board.placedLetters[d]!, b: [eRed]))
+        
         XCTAssert(board.getLetterAt(oPos) == o)
         XCTAssert(board.getLetterAt(rPos) == r)
         XCTAssert(board.getLetterAt(aPos) == a)
@@ -197,6 +199,7 @@ class bananagrams_iosTests: XCTestCase {
         //removals
         XCTAssert(board.remove(o) == true)
         XCTAssert(board.remove(o) == false)
+        XCTAssert(arrayInclude(board.placedLetters[r]!, target: o) == false)
         XCTAssert(board.remove(r) == true)
         XCTAssert(board.remove(a) == true)
         XCTAssert(board.remove(n) == true)
@@ -218,7 +221,9 @@ class bananagrams_iosTests: XCTestCase {
         let bSet : NSSet = NSSet(array: b)
         return aSet.isEqualToSet(bSet)
     }
-    
-    
-    
+
+    func arrayInclude(array: Array<AnyObject>, target: AnyObject) -> Bool {
+        let aSet : NSSet = NSSet(array: array)
+        return aSet.containsObject(target)
+    }
 }
