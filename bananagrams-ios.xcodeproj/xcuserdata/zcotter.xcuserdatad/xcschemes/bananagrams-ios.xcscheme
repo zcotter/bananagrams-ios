@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95EA005A1A4B96B600A7D473"
+               BlueprintIdentifier = "95E275701A52135C0012AC30"
                BuildableName = "bananagrams-ios.app"
                BlueprintName = "bananagrams-ios"
                ReferencedContainer = "container:bananagrams-ios.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95EA006F1A4B96B600A7D473"
+               BlueprintIdentifier = "95E275891A52135D0012AC30"
                BuildableName = "bananagrams-iosTests.xctest"
                BlueprintName = "bananagrams-iosTests"
                ReferencedContainer = "container:bananagrams-ios.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95EA006F1A4B96B600A7D473"
+               BlueprintIdentifier = "95E275891A52135D0012AC30"
                BuildableName = "bananagrams-iosTests.xctest"
                BlueprintName = "bananagrams-iosTests"
                ReferencedContainer = "container:bananagrams-ios.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95EA005A1A4B96B600A7D473"
+            BlueprintIdentifier = "95E275701A52135C0012AC30"
             BuildableName = "bananagrams-ios.app"
             BlueprintName = "bananagrams-ios"
             ReferencedContainer = "container:bananagrams-ios.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95EA005A1A4B96B600A7D473"
+            BlueprintIdentifier = "95E275701A52135C0012AC30"
             BuildableName = "bananagrams-ios.app"
             BlueprintName = "bananagrams-ios"
             ReferencedContainer = "container:bananagrams-ios.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95EA005A1A4B96B600A7D473"
+            BlueprintIdentifier = "95E275701A52135C0012AC30"
             BuildableName = "bananagrams-ios.app"
             BlueprintName = "bananagrams-ios"
             ReferencedContainer = "container:bananagrams-ios.xcodeproj">
