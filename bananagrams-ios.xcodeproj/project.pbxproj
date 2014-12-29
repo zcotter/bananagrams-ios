@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95EA00611A4B96B600A7D473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00601A4B96B600A7D473 /* AppDelegate.swift */; };
-		95EA00631A4B96B600A7D473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00621A4B96B600A7D473 /* ViewController.swift */; };
+		95EA00631A4B96B600A7D473 /* BananagramsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00621A4B96B600A7D473 /* BananagramsController.swift */; };
 		95EA00661A4B96B600A7D473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00641A4B96B600A7D473 /* Main.storyboard */; };
 		95EA00681A4B96B600A7D473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00671A4B96B600A7D473 /* Images.xcassets */; };
 		95EA006B1A4B96B600A7D473 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EA00691A4B96B600A7D473 /* LaunchScreen.xib */; };
@@ -31,7 +31,7 @@
 		95EA00A71A4B9ABD00A7D473 /* PlacedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00841A4B971900A7D473 /* PlacedLetter.swift */; };
 		95EA00A81A4B9ABD00A7D473 /* TextReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00941A4B973A00A7D473 /* TextReader.swift */; };
 		95EA00A91A4B9ABD00A7D473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00601A4B96B600A7D473 /* AppDelegate.swift */; };
-		95EA00AA1A4B9ABD00A7D473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00621A4B96B600A7D473 /* ViewController.swift */; };
+		95EA00AA1A4B9ABD00A7D473 /* BananagramsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA00621A4B96B600A7D473 /* BananagramsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		95EA005B1A4B96B600A7D473 /* bananagrams-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bananagrams-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA005F1A4B96B600A7D473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EA00601A4B96B600A7D473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95EA00621A4B96B600A7D473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95EA00621A4B96B600A7D473 /* BananagramsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananagramsController.swift; sourceTree = "<group>"; };
 		95EA00651A4B96B600A7D473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95EA00671A4B96B600A7D473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95EA006A1A4B96B600A7D473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				95EA00841A4B971900A7D473 /* PlacedLetter.swift */,
 				95EA00941A4B973A00A7D473 /* TextReader.swift */,
 				95EA00601A4B96B600A7D473 /* AppDelegate.swift */,
-				95EA00621A4B96B600A7D473 /* ViewController.swift */,
+				95EA00621A4B96B600A7D473 /* BananagramsController.swift */,
 				95EA00641A4B96B600A7D473 /* Main.storyboard */,
 				95EA00671A4B96B600A7D473 /* Images.xcassets */,
 				95EA00691A4B96B600A7D473 /* LaunchScreen.xib */,
@@ -258,7 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95EA00631A4B96B600A7D473 /* ViewController.swift in Sources */,
+				95EA00631A4B96B600A7D473 /* BananagramsController.swift in Sources */,
 				95EA008E1A4B971900A7D473 /* PlacedLetter.swift in Sources */,
 				95EA008B1A4B971900A7D473 /* WordDictionary.swift in Sources */,
 				95EA00961A4B973A00A7D473 /* TextReader.swift in Sources */,
@@ -273,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95EA00AA1A4B9ABD00A7D473 /* ViewController.swift in Sources */,
+				95EA00AA1A4B9ABD00A7D473 /* BananagramsController.swift in Sources */,
 				95EA00771A4B96B600A7D473 /* bananagrams_iosTests.swift in Sources */,
 				95EA00A71A4B9ABD00A7D473 /* PlacedLetter.swift in Sources */,
 				95EA00A41A4B9ABD00A7D473 /* WordDictionary.swift in Sources */,
@@ -465,6 +465,7 @@
 				95EA007C1A4B96B600A7D473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95EA007D1A4B96B600A7D473 /* Build configuration list for PBXNativeTarget "bananagrams-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +474,7 @@
 				95EA007F1A4B96B600A7D473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

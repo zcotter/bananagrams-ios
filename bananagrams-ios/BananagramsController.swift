@@ -1,14 +1,6 @@
-//
-//  ViewController.swift
-//  bananagrams-ios
-//
-//  Created by Zach Cotter on 12/24/14.
-//  Copyright (c) 2014 Zach Cotter. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+class BananagramsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

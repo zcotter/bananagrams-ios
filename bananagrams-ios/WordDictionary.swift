@@ -1,11 +1,3 @@
-//
-//  Dictionary.swift
-//  bananagrams-ios
-//
-//  Created by Zach Cotter on 12/23/14.
-//  Copyright (c) 2014 Zach Cotter. All rights reserved.
-//
-
 import Foundation
 
 class WordDictionary {
