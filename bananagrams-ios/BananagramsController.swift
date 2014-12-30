@@ -7,7 +7,7 @@ class BananagramsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let scene = BoardScene(size: view.bounds.size)
+        let scene = BananagramsScene(size: view.bounds.size)
         println(view.debugDescription)
         let skView = view as SKView
 

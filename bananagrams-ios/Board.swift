@@ -1,4 +1,5 @@
 import Foundation
+import SpriteKit
 
 class Board {
     var placedLetters: [PlacedLetter: [PlacedLetter]]
@@ -24,6 +25,7 @@ class Board {
             return valid
         }
     }
+    let dimension:Int = 10
     
     let dictionary: WordDictionary
     
@@ -158,5 +160,20 @@ class Board {
             description += letter.description() + "\n"
         }
         return description
+    }
+
+    func draw(scene : BananagramsScene) {
+        for letter in placedLetters.keys {
+            var letterNode : SKSpriteNode = letter.toSpriteNode()
+            letterNode.position = CGPoint(x: 10, y: 10)
+            let width = scene.size.width.description.componentsSeparatedByString(".")[0].toInt()! / dimension
+            let height = scene.size.height.description.componentsSeparatedByString(".")[0].toInt()! / dimension
+            letterNode.size = CGSize(width: width,
+                                     height: height)
+            letterNode.position = CGPoint(x: letter.position.x * width,
+                                          y: letter.position.y * height)
+            letterNode.anchorPoint = CGPoint(x: 0, y: 0)
+            scene.addChild(letterNode)
+        }
     }
 }

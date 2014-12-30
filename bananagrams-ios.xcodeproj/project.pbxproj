@@ -22,8 +22,8 @@
 		95E275CA1A5213FF0012AC30 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E2759D1A5213FF0012AC30 /* blank.png */; };
 		95E275CB1A5213FF0012AC30 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2759E1A5213FF0012AC30 /* Board.swift */; };
 		95E275CC1A5213FF0012AC30 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2759E1A5213FF0012AC30 /* Board.swift */; };
-		95E275CD1A5213FF0012AC30 /* BoardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2759F1A5213FF0012AC30 /* BoardScene.swift */; };
-		95E275CE1A5213FF0012AC30 /* BoardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2759F1A5213FF0012AC30 /* BoardScene.swift */; };
+		95E275CD1A5213FF0012AC30 /* BananagramsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2759F1A5213FF0012AC30 /* BananagramsScene.swift */; };
+		95E275CE1A5213FF0012AC30 /* BananagramsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2759F1A5213FF0012AC30 /* BananagramsScene.swift */; };
 		95E275CF1A5213FF0012AC30 /* c.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E275A01A5213FF0012AC30 /* c.png */; };
 		95E275D01A5213FF0012AC30 /* c.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E275A01A5213FF0012AC30 /* c.png */; };
 		95E275D11A5213FF0012AC30 /* d.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E275A11A5213FF0012AC30 /* d.png */; };
@@ -121,7 +121,7 @@
 		95E2759C1A5213FF0012AC30 /* BananagramsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BananagramsController.swift; sourceTree = "<group>"; };
 		95E2759D1A5213FF0012AC30 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		95E2759E1A5213FF0012AC30 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		95E2759F1A5213FF0012AC30 /* BoardScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardScene.swift; sourceTree = "<group>"; };
+		95E2759F1A5213FF0012AC30 /* BananagramsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BananagramsScene.swift; sourceTree = "<group>"; };
 		95E275A01A5213FF0012AC30 /* c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c.png; sourceTree = "<group>"; };
 		95E275A11A5213FF0012AC30 /* d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d.png; sourceTree = "<group>"; };
 		95E275A21A5213FF0012AC30 /* e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e.png; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				95E276151A5214260012AC30 /* Images */,
 				95E2759C1A5213FF0012AC30 /* BananagramsController.swift */,
 				95E2759E1A5213FF0012AC30 /* Board.swift */,
-				95E2759F1A5213FF0012AC30 /* BoardScene.swift */,
+				95E2759F1A5213FF0012AC30 /* BananagramsScene.swift */,
 				95E275AA1A5213FF0012AC30 /* Letter.swift */,
 				95E275AB1A5213FF0012AC30 /* LetterList.swift */,
 				95E275B11A5213FF0012AC30 /* PlacedLetter.swift */,
@@ -458,7 +458,7 @@
 				95E275771A52135D0012AC30 /* AppDelegate.swift in Sources */,
 				95E276051A5213FF0012AC30 /* WordDictionary.swift in Sources */,
 				95E275F11A5213FF0012AC30 /* PlacedLetter.swift in Sources */,
-				95E275CD1A5213FF0012AC30 /* BoardScene.swift in Sources */,
+				95E275CD1A5213FF0012AC30 /* BananagramsScene.swift in Sources */,
 				95E275FD1A5213FF0012AC30 /* TextReader.swift in Sources */,
 				95E275E31A5213FF0012AC30 /* Letter.swift in Sources */,
 				95E275C71A5213FF0012AC30 /* BananagramsController.swift in Sources */,
@@ -474,7 +474,7 @@
 				95E275911A52135D0012AC30 /* bananagrams_iosTests.swift in Sources */,
 				95E276061A5213FF0012AC30 /* WordDictionary.swift in Sources */,
 				95E275F21A5213FF0012AC30 /* PlacedLetter.swift in Sources */,
-				95E275CE1A5213FF0012AC30 /* BoardScene.swift in Sources */,
+				95E275CE1A5213FF0012AC30 /* BananagramsScene.swift in Sources */,
 				95E275FE1A5213FF0012AC30 /* TextReader.swift in Sources */,
 				95E275E41A5213FF0012AC30 /* Letter.swift in Sources */,
 				95E275C81A5213FF0012AC30 /* BananagramsController.swift in Sources */,

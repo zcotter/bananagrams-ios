@@ -1,4 +1,5 @@
 import Foundation
+import SpriteKit
 
 class Letter : Hashable {
     var letter : String

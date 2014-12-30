@@ -1,4 +1,5 @@
 import Foundation
+import SpriteKit
 
 class PlacedLetter : Letter {
     var position: (x:Int, y:Int)
@@ -25,7 +26,9 @@ class PlacedLetter : Letter {
         return "\(letter): (\(position.x), \(position.y)) " + (valid ? "valid" : "invalid")
     }
     
-    //TODO draw
+    func toSpriteNode() -> SKSpriteNode {
+        return SKSpriteNode(imageNamed: letter.lowercaseString)
+    }
 }
 
 func ==(left: PlacedLetter, right: PlacedLetter) -> Bool {
