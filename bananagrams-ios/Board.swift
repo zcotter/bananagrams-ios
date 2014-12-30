@@ -171,7 +171,7 @@ class Board {
             letterNode.size = CGSize(width: width,
                                      height: height)
             letterNode.position = CGPoint(x: letter.position.x * width,
-                                          y: letter.position.y * height)
+                                          y: letter.position.y * height + scene.letterListHeight)
             letterNode.anchorPoint = CGPoint(x: 0, y: 0)
             scene.addChild(letterNode)
         }

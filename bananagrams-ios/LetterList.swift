@@ -66,7 +66,7 @@ class LetterList {
                 letterNode.size = CGSize(width: width,
                                          height: height)
                 letterNode.position = CGPoint(x: i * width,
-                                              y: j * height + scene.boardHeight)
+                                              y: j * height)
                 letterNode.anchorPoint = CGPoint(x: 0, y: 0)
                 scene.addChild(letterNode)
             }
