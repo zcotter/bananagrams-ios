@@ -5,6 +5,42 @@ class BananagramsScene : SKScene {
     let testLetter = SKSpriteNode(imageNamed: "b")
     var board = Board()
 
+    var width: Int {
+        get {
+            return self.size.width.description.componentsSeparatedByString(".")[0].toInt()!
+        }
+    }
+
+    var height: Int {
+        get {
+            return self.size.height.description.componentsSeparatedByString(".")[0].toInt()!
+        }
+    }
+
+    var boardHeight: Int {
+        get {
+            return Int(0.8 * Float(height))
+        }
+    }
+
+    var boardWidth: Int {
+        get {
+            return width
+        }
+    }
+
+    var letterListHeight: Int {
+        get {
+            return Int(0.2 * Float(height))
+        }
+    }
+
+    var letterListWidth: Int {
+        get {
+            return width
+        }
+    }
+
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
         makeTestBoard()
