@@ -59,8 +59,8 @@ class Board {
     }
 
     private func validateFrom(start: PlacedLetter){
-        let up = getContinuousFrom(start, direction: (xDiff: 0, yDiff: -1), accumulator: [])
-        let down = getContinuousFrom(start, direction: (xDiff: 0, yDiff: 1), accumulator: [])
+        let up = getContinuousFrom(start, direction: (xDiff: 0, yDiff: 1), accumulator: [])
+        let down = getContinuousFrom(start, direction: (xDiff: 0, yDiff: -1), accumulator: [])
         let left = getContinuousFrom(start, direction: (xDiff: -1, yDiff: 0), accumulator: [])
         let right = getContinuousFrom(start, direction: (xDiff: 1, yDiff: 0), accumulator: [])
 
