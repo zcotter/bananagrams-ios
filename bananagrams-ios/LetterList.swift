@@ -1,4 +1,5 @@
 import Foundation
+import SpriteKit
 
 class LetterList {
     let lettersPerRow:Int = 10
@@ -52,6 +53,23 @@ class LetterList {
         }
         else{
             return letters.removeAtIndex(index)
+        }
+    }
+
+    func draw(scene : BananagramsScene) {
+        println(self.length)
+        for i in 0...9 {
+            for j in 0...1 {
+                var letterNode : SKSpriteNode = letters[j * 10 + i].toSpriteNode()
+                let width = scene.letterListWidth / lettersPerRow
+                let height = scene.letterListHeight / numberOfRows
+                letterNode.size = CGSize(width: width,
+                                         height: height)
+                letterNode.position = CGPoint(x: i * width,
+                                              y: j * height + scene.boardHeight)
+                letterNode.anchorPoint = CGPoint(x: 0, y: 0)
+                scene.addChild(letterNode)
+            }
         }
     }
 }

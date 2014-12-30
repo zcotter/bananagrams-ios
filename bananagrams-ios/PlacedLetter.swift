@@ -25,10 +25,6 @@ class PlacedLetter : Letter {
     func description() -> String {
         return "\(letter): (\(position.x), \(position.y)) " + (valid ? "valid" : "invalid")
     }
-    
-    func toSpriteNode() -> SKSpriteNode {
-        return SKSpriteNode(imageNamed: letter.lowercaseString)
-    }
 }
 
 func ==(left: PlacedLetter, right: PlacedLetter) -> Bool {

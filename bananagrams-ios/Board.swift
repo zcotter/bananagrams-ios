@@ -166,8 +166,8 @@ class Board {
         for letter in placedLetters.keys {
             var letterNode : SKSpriteNode = letter.toSpriteNode()
             letterNode.position = CGPoint(x: 10, y: 10)
-            let width = scene.size.width.description.componentsSeparatedByString(".")[0].toInt()! / dimension
-            let height = scene.size.height.description.componentsSeparatedByString(".")[0].toInt()! / dimension
+            let width = scene.boardWidth / dimension
+            let height = scene.boardHeight / dimension
             letterNode.size = CGSize(width: width,
                                      height: height)
             letterNode.position = CGPoint(x: letter.position.x * width,

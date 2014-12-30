@@ -25,6 +25,23 @@ class Letter : Hashable {
             }
         }
     }
+
+    var frequency : Int {
+        get {
+            switch self.letter {
+            case "E": return 12
+            case "A", "I": return 9
+            case "O": return 8
+            case "N", "R", "T": return 6
+            case "L", "S", "U", "D": return 4
+            case "G": return 3
+            case "B", "C", "M", "P", "F", "H", "V", "W", "Y": return 2
+            case "K", "J", "X", "Q", "Z": return 1
+            default:
+                fatalError("Letter not found")
+            }
+        }
+    }
     
     var hashValue : Int {
         return letter.hashValue
@@ -34,7 +51,18 @@ class Letter : Hashable {
         self.letter = String(letter).uppercaseString
     }
     
-    //TODO draw
+    func toSpriteNode() -> SKSpriteNode {
+        return SKSpriteNode(imageNamed: letter.lowercaseString)
+    }
+
+    class func alphabet() -> [Character] {
+        var alphabet : [Character] = []
+        for letterValue in UnicodeScalar("a").value...UnicodeScalar("z").value{
+            let character = UnicodeScalar(letterValue)
+            alphabet.append(Character(character))
+        }
+        return alphabet
+    }
 }
 
 func ==(left: Letter, right: Letter) -> Bool {

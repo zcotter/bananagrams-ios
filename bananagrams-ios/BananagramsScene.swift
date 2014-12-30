@@ -4,6 +4,7 @@ import Foundation
 class BananagramsScene : SKScene {
     let testLetter = SKSpriteNode(imageNamed: "b")
     var board = Board()
+    var letterList = LetterList()
 
     var width: Int {
         get {
@@ -19,7 +20,7 @@ class BananagramsScene : SKScene {
 
     var boardHeight: Int {
         get {
-            return Int(0.8 * Float(height))
+            return Int((10.0 / 12.0) * Float(height))
         }
     }
 
@@ -31,7 +32,7 @@ class BananagramsScene : SKScene {
 
     var letterListHeight: Int {
         get {
-            return Int(0.2 * Float(height))
+            return Int((2.0 / 12.0) * Float(height))
         }
     }
 
@@ -45,6 +46,24 @@ class BananagramsScene : SKScene {
         backgroundColor = SKColor.whiteColor()
         makeTestBoard()
         board.draw(self)
+        makeLetterList()
+        letterList.draw(self)
+    }
+
+    func makeLetterList(){
+        let alphabet = Letter.alphabet()
+        var tileBag : [Letter] = []
+        for letter in alphabet {
+            let tile = Letter(letter: letter)
+            for i in 1...tile.frequency {
+                tileBag.append(tile)
+            }
+        }
+
+        for i in 1...20 {
+            let index : Int = Int(arc4random_uniform(UInt32(tileBag.count)))
+            letterList.addLetter(tileBag.removeAtIndex(index))
+        }
     }
 
     func makeTestBoard(){
