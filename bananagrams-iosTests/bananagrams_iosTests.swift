@@ -217,6 +217,50 @@ class bananagrams_iosTests: XCTestCase {
         XCTAssert(board.remove(d) == true)
     }
 
+    func testMoves(){
+        //O00000
+        //orange
+        //Oe0000
+        //Od0000
+        //O00000
+        var board = Board()
+        let oPos = (x: 0, y: 8)
+        let rPos = (x: 1, y: 8)
+        let aPos = (x: 2, y: 8)
+        let nPos = (x: 3, y: 8)
+        let gPos = (x: 4, y: 8)
+        let ePos = (x: 5, y: 8)
+
+        let eRedPos = (x: 1, y: 7)
+        let dPos = (x: 1, y: 6)
+        let o = PlacedLetter(position: oPos, letter: "o")
+        let r = PlacedLetter(position: rPos, letter: "r")
+        let a = PlacedLetter(position: aPos, letter: "a")
+        let n = PlacedLetter(position: nPos, letter: "n")
+        let g = PlacedLetter(position: gPos, letter: "g")
+        let e = PlacedLetter(position: ePos, letter: "e")
+
+        let eRed = PlacedLetter(position: eRedPos, letter: "e")
+        let d = PlacedLetter(position: dPos, letter: "d")
+
+        XCTAssert(board.placeLetter(o) == true)
+        XCTAssert(board.placeLetter(r) == true)
+        XCTAssert(board.placeLetter(a) == true)
+        XCTAssert(board.placeLetter(n) == true)
+        XCTAssert(board.placeLetter(g) == true)
+        XCTAssert(board.placeLetter(e) == true)
+        XCTAssert(board.placeLetter(eRed) == true)
+        XCTAssert(board.placeLetter(d) == true)
+
+        //Test board to board move
+        var bToBFail : Move = BoardToBoardMove(origin: d, destination: (x: oPos.x, y: oPos.y), board: board)
+        XCTAssert(bToBFail.makeMove() == false)
+        XCTAssert(board.valid == true)
+        var bToBPass : Move = BoardToBoardMove(origin: d, destination: (x: 5, y: 5), board: board)
+        XCTAssert(bToBPass.makeMove())
+        XCTAssert(board.valid == false)
+    }
+
     func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{
         if(countElements(a) != countElements(b)){
             return false

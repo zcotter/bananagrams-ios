@@ -159,7 +159,7 @@
 		95E275C01A5213FF0012AC30 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		95E275C11A5213FF0012AC30 /* y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = y.png; sourceTree = "<group>"; };
 		95E275C21A5213FF0012AC30 /* z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = z.png; sourceTree = "<group>"; };
-		95E276171A537C330012AC30 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		95E276171A537C330012AC30 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Move.swift; path = ../Move.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,6 @@
 		95E275681A52135C0012AC30 = {
 			isa = PBXGroup;
 			children = (
-				95E276171A537C330012AC30 /* Move.swift */,
 				95E275731A52135C0012AC30 /* bananagrams-ios */,
 				95E2758D1A52135D0012AC30 /* bananagrams-iosTests */,
 				95E275721A52135C0012AC30 /* Products */,
@@ -202,6 +201,7 @@
 		95E275731A52135C0012AC30 /* bananagrams-ios */ = {
 			isa = PBXGroup;
 			children = (
+				95E276171A537C330012AC30 /* Move.swift */,
 				95E276151A5214260012AC30 /* Images */,
 				95E2759C1A5213FF0012AC30 /* BananagramsController.swift */,
 				95E2759E1A5213FF0012AC30 /* Board.swift */,
@@ -669,6 +669,7 @@
 				95E275961A52135D0012AC30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95E275971A52135D0012AC30 /* Build configuration list for PBXNativeTarget "bananagrams-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -677,6 +678,7 @@
 				95E275991A52135D0012AC30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

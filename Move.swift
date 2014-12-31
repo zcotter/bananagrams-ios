@@ -9,11 +9,6 @@ protocol Move {
 }
 
 class AbstractMove : Move {
-
-    init(){
-        fatalError("AbstractMove cannot be instantiated")
-    }
-
     func execute(startPosition : (x : Int?, y : Int?)?,
         endPosition : (x: Int?, y: Int?)?,
         letter : Letter){
@@ -38,14 +33,13 @@ class BoardToBoardMove : AbstractMove {
     }
 
     override func makeMove() -> Bool {
-        if board.canPlaceLetter(destination) == true {
-            execute(origin.position,
+        if board.canPlaceLetter((x: destination.x!, y: destination.y!)) &&
+           board.placeLetter(PlacedLetter(position: (x: destination.x!, y: destination.y!), letter: Character(origin.letter))) {
+            execute((x: origin.position.x, y: origin.position.y),
                     endPosition: destination,
                     letter: origin)
             return true
         }
         return false
     }
-
-
 }
