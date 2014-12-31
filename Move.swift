@@ -43,3 +43,25 @@ class BoardToBoardMove : AbstractMove {
         return false
     }
 }
+
+class BoardToLetterListMove : AbstractMove {
+    var letter : PlacedLetter
+    var board : Board
+    var list : LetterList
+
+    init(letter: PlacedLetter, board: Board, list: LetterList){
+        self.letter = letter
+        self.board = board
+        self.list = list
+    }
+
+    override func makeMove() -> Bool {
+        if list.addLetter(letter) && board.remove(letter) {
+            execute((x: letter.position.x, y: letter.position.y),
+                     endPosition: (x: nil, y: nil),
+                     letter: letter)
+            return true
+        }
+        return false
+    }
+}

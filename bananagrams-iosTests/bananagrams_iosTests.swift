@@ -241,7 +241,7 @@ class bananagrams_iosTests: XCTestCase {
         let e = PlacedLetter(position: ePos, letter: "e")
 
         let eRed = PlacedLetter(position: eRedPos, letter: "e")
-        let d = PlacedLetter(position: dPos, letter: "d")
+        var d = PlacedLetter(position: dPos, letter: "d")
 
         XCTAssert(board.placeLetter(o) == true)
         XCTAssert(board.placeLetter(r) == true)
@@ -259,6 +259,39 @@ class bananagrams_iosTests: XCTestCase {
         var bToBPass : Move = BoardToBoardMove(origin: d, destination: (x: 5, y: 5), board: board)
         XCTAssert(bToBPass.makeMove())
         XCTAssert(board.valid == false)
+        d = board.getLetterAt((x: 5, y: 5))!
+
+        //Test board to letter list move
+        var bToLFailStart : Move = BoardToLetterListMove(letter: PlacedLetter(position: (x: 10, y: 10), letter: "q"),
+            board: board,
+            list: LetterList())
+        XCTAssert(bToLFailStart.makeMove() == false)
+
+        //fill the list
+        var list = LetterList()
+        var testChars:[Character] = ["a", "b", "a", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s"]
+        for char in testChars {
+            XCTAssert(list.addLetter(Letter(letter: char)) == true)
+        }
+
+        var bToLFailEnd : Move = BoardToLetterListMove(letter: d,
+                                                       board: board,
+                                                       list: list)
+        XCTAssert(bToLFailEnd.makeMove() == false)
+
+        list.removeLetterAtGridPosition((x: 0, y: 0))
+        list.removeLetterAtGridPosition((x: 0, y: 0))
+
+        var bToLPass : Move = BoardToLetterListMove(letter: d,
+                                                    board: board,
+                                                    list: list)
+        XCTAssert(bToLPass.makeMove())
+
+        var bToLPass2 : Move = BoardToLetterListMove(letter: eRed,
+            board: board,
+            list: list)
+        XCTAssert(bToLPass2.makeMove())
+        XCTAssert(board.valid == true)
     }
 
     func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{
