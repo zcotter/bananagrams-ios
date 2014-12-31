@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>129A9B74-B2D4-4997-8CBA-F6F90ED26D07</string>
+	<key>IDESourceControlProjectName</key>
+	<string>bananagrams-ios</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>952A382FC67A9E2A81F3E608EADE2038580AD27F</key>
+		<string>github.com:zcotter/bananagrams-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>bananagrams-ios.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>952A382FC67A9E2A81F3E608EADE2038580AD27F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:zcotter/bananagrams-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>952A382FC67A9E2A81F3E608EADE2038580AD27F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>952A382FC67A9E2A81F3E608EADE2038580AD27F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bananagrams-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

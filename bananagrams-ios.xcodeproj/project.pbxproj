@@ -94,6 +94,8 @@
 		95E276121A5213FF0012AC30 /* y.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E275C11A5213FF0012AC30 /* y.png */; };
 		95E276131A5213FF0012AC30 /* z.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E275C21A5213FF0012AC30 /* z.png */; };
 		95E276141A5213FF0012AC30 /* z.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E275C21A5213FF0012AC30 /* z.png */; };
+		95E276181A537C330012AC30 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E276171A537C330012AC30 /* Move.swift */; };
+		95E276191A537C330012AC30 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E276171A537C330012AC30 /* Move.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,7 @@
 		95E275C01A5213FF0012AC30 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		95E275C11A5213FF0012AC30 /* y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = y.png; sourceTree = "<group>"; };
 		95E275C21A5213FF0012AC30 /* z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = z.png; sourceTree = "<group>"; };
+		95E276171A537C330012AC30 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,7 @@
 		95E275681A52135C0012AC30 = {
 			isa = PBXGroup;
 			children = (
+				95E276171A537C330012AC30 /* Move.swift */,
 				95E275731A52135C0012AC30 /* bananagrams-ios */,
 				95E2758D1A52135D0012AC30 /* bananagrams-iosTests */,
 				95E275721A52135C0012AC30 /* Products */,
@@ -455,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E276181A537C330012AC30 /* Move.swift in Sources */,
 				95E275771A52135D0012AC30 /* AppDelegate.swift in Sources */,
 				95E276051A5213FF0012AC30 /* WordDictionary.swift in Sources */,
 				95E275F11A5213FF0012AC30 /* PlacedLetter.swift in Sources */,
@@ -471,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E276191A537C330012AC30 /* Move.swift in Sources */,
 				95E275911A52135D0012AC30 /* bananagrams_iosTests.swift in Sources */,
 				95E276061A5213FF0012AC30 /* WordDictionary.swift in Sources */,
 				95E275F21A5213FF0012AC30 /* PlacedLetter.swift in Sources */,
