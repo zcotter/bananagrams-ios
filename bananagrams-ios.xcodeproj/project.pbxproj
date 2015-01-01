@@ -159,7 +159,7 @@
 		95E275C01A5213FF0012AC30 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		95E275C11A5213FF0012AC30 /* y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = y.png; sourceTree = "<group>"; };
 		95E275C21A5213FF0012AC30 /* z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = z.png; sourceTree = "<group>"; };
-		95E276171A537C330012AC30 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Move.swift; path = ../Move.swift; sourceTree = "<group>"; };
+		95E276171A537C330012AC30 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
