@@ -56,6 +56,25 @@ class LetterList {
         }
     }
 
+    func removeLetter(target : Letter) -> Bool {
+        for (index, letter) in enumerate(letters) {
+            if(letter == target){
+                letters.removeAtIndex(index)
+                return true
+            }
+        }
+        return false
+    }
+
+    func hasLetter(target : Letter) -> Bool {
+        for letter in letters {
+            if(letter == target){
+                return true
+            }
+        }
+        return false
+    }
+
     func draw(scene : BananagramsScene) {
         for x in 0...9 {
             for y in 0...1 {

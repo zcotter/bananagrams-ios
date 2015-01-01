@@ -8,7 +8,6 @@ class BananagramsController: UIViewController {
         super.viewDidLoad()
 
         let scene = BananagramsScene(size: view.bounds.size)
-        println(view.debugDescription)
         let skView = view as SKView
 
         skView.showsFPS = true

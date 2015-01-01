@@ -104,6 +104,9 @@ class bananagrams_iosTests: XCTestCase {
             XCTAssert(list.getLetterAtGridPosition((x: i, y: 0)) == Letter(letter: testChars[i]))
             XCTAssert(list.getLetterAtGridPosition((x: i, y: 1)) == Letter(letter: testChars[i + 10]))
         }
+
+        XCTAssert(list.hasLetter(Letter(letter: "p")))
+        XCTAssert(list.hasLetter(Letter(letter: "z")) == false)
         XCTAssert(list.capacity == 20)
         XCTAssert(list.length == 20)
         XCTAssert(list.addLetter(Letter(letter: "j")) == false)
@@ -118,6 +121,17 @@ class bananagrams_iosTests: XCTestCase {
 
         for i in 0..<18 {
             XCTAssert(list.removeLetterAtGridPosition((x: 0, y: 0)) != nil)
+        }
+        XCTAssert(list.capacity == 20)
+        XCTAssert(list.length == 0)
+
+        for char in testChars {
+            XCTAssert(list.addLetter(Letter(letter: char)) == true)
+        }
+        XCTAssert(list.capacity == 20)
+        XCTAssert(list.length == 20)
+        for char in testChars {
+            XCTAssert(list.removeLetter(Letter(letter: char)))
         }
         XCTAssert(list.capacity == 20)
         XCTAssert(list.length == 0)
@@ -292,6 +306,37 @@ class bananagrams_iosTests: XCTestCase {
             list: list)
         XCTAssert(bToLPass2.makeMove())
         XCTAssert(board.valid == true)
+
+        list = LetterList()
+        list.addLetter(Letter(letter: "e"))
+        list.addLetter(Letter(letter: "d"))
+
+        var lToBPass1 : Move = LetterListToBoardMove(letter: Letter(letter: "e"),
+                                                     destination: eRedPos,
+                                                     board: board,
+                                                     list: list)
+        XCTAssert(lToBPass1.makeMove())
+        XCTAssert(board.valid)
+
+        list = LetterList()
+        var lToBFailStart : Move = LetterListToBoardMove(letter: Letter(letter: "d"),
+                                                         destination: (x: 7, y: 7),
+                                                         board: board,
+                                                         list: list)
+        XCTAssert(lToBFailStart.makeMove() == false)
+        XCTAssert(list.addLetter(Letter(letter: "d")))
+
+        var lToBFailEnd : Move = LetterListToBoardMove(letter: Letter(letter: "d"),
+                                                       destination: eRedPos,
+                                                       board: board,
+                                                       list: list)
+        XCTAssert(lToBFailEnd.makeMove() == false)
+
+        var lToBFailEnd2 : Move = LetterListToBoardMove(letter: Letter(letter: "d"),
+            destination: dPos,
+            board: board,
+            list: list)
+        XCTAssert(lToBFailEnd2.makeMove() == false)
     }
 
     func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{
