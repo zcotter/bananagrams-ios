@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bananagrams-ios/Move.swift"
-            timestampString = "441761172.901555"
+            timestampString = "441905417.018564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "makeMove()"
             landmarkType = "5">
          </BreakpointContent>
