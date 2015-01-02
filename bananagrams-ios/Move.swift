@@ -20,6 +20,20 @@ class AbstractMove : Move {
     }
 }
 
+class MoveFactory {
+    class func buildMove(startPosition : (x : Int?, y : Int?)?,
+                         endPosition : (x: Int?, y: Int?)?,
+                         letter : Letter) -> Move {
+
+    }
+
+    class func buildAndExecuteMove(startPosition : (x : Int?, y : Int?)?,
+                                   endPosition : (x: Int?, y: Int?)?,
+                                   letter : Letter) -> Bool {
+
+    }
+}
+
 class BoardToBoardMove : AbstractMove {
 
     var origin : PlacedLetter
