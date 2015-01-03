@@ -316,7 +316,6 @@ class bananagrams_iosTests: XCTestCase {
                                                      board: board,
                                                      list: list)
         XCTAssert(lToBPass1.makeMove())
-        XCTAssert(board.valid)
 
         list = LetterList()
         var lToBFailStart : Move = LetterListToBoardMove(letter: Letter(letter: "d"),
@@ -331,12 +330,61 @@ class bananagrams_iosTests: XCTestCase {
                                                        board: board,
                                                        list: list)
         XCTAssert(lToBFailEnd.makeMove() == false)
+    }
 
-        var lToBFailEnd2 : Move = LetterListToBoardMove(letter: Letter(letter: "d"),
-            destination: dPos,
-            board: board,
-            list: list)
-        XCTAssert(lToBFailEnd2.makeMove() == false)
+    func testMoveFactory() {
+        //000000
+        //0r0000
+        //0e0000
+        //0d0000
+        //000000
+        var board = Board()
+        let rPos = (x: 1, y: 8)
+        let eRedPos = (x: 1, y: 7)
+        let dPos = (x: 1, y: 6)
+
+        let rPos2 = (x: 5, y: 8)
+        let eRedPos2 = (x: 5, y: 7)
+        let dPos2 = (x: 5, y: 6)
+        let r = PlacedLetter(position: rPos, letter: "r")
+        let eRed = PlacedLetter(position: eRedPos, letter: "e")
+        var d = PlacedLetter(position: dPos, letter: "d")
+
+        let r2 = PlacedLetter(position: rPos2, letter: "r")
+        let eRed2 = PlacedLetter(position: eRedPos2, letter: "e")
+        var d2 = PlacedLetter(position: dPos2, letter: "d")
+
+        var list = LetterList()
+        list.addLetter(Letter(letter: "r"))
+        list.addLetter(Letter(letter: "e"))
+        list.addLetter(Letter(letter: "d"))
+
+        // list to board
+        XCTAssert(MoveFactory.buildAndExecuteMove(nil, endPosition: rPos, letter: Letter(letter: "r"), game: (board: board, list: list)))
+        XCTAssert(board.getLetterAt(rPos) == r)
+
+        XCTAssert(MoveFactory.buildAndExecuteMove(nil, endPosition: eRedPos, letter: Letter(letter: "e"), game: (board: board, list: list)))
+        XCTAssert(board.getLetterAt(eRedPos) == eRed)
+
+        XCTAssert(MoveFactory.buildAndExecuteMove(nil, endPosition: dPos, letter: Letter(letter: "d"), game: (board: board, list: list)))
+        XCTAssert(board.getLetterAt(dPos) == d)
+
+        XCTAssert(board.valid)
+        XCTAssert(list.length == 0)
+
+        //board to board
+        XCTAssert(MoveFactory.buildAndExecuteMove(rPos, endPosition: rPos2, letter: Letter(letter: "r"), game: (board: board, list: nil)))
+        XCTAssert(board.getLetterAt(rPos) == nil)
+        XCTAssert(board.getLetterAt(rPos2) == r2)
+
+        XCTAssert(MoveFactory.buildAndExecuteMove(eRedPos, endPosition: eRedPos2, letter: Letter(letter: "e"), game: (board: board, list: nil)))
+        XCTAssert(board.getLetterAt(eRedPos) == nil)
+        XCTAssert(board.getLetterAt(eRedPos2) == eRed2)
+
+        XCTAssert(MoveFactory.buildAndExecuteMove(dPos, endPosition: dPos2, letter: Letter(letter: "d"), game: (board: board, list: nil)))
+        XCTAssert(board.getLetterAt(dPos) == nil)
+        XCTAssert(board.getLetterAt(dPos2) == d2)
+        XCTAssert(board.valid)
     }
 
     func compareArrays(a : Array<AnyObject>, b : Array<AnyObject>) -> Bool{

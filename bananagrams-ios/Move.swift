@@ -20,19 +20,44 @@ class AbstractMove : Move {
     }
 }
 
-//class MoveFactory {
-  //  class func buildMove(startPosition : (x : Int?, y : Int?)?,
-    //                     endPosition : (x: Int?, y: Int?)?,
-      //                   letter : Letter) -> Move {
+class MoveFactory {
+    class func buildMove(startPosition : (x : Int, y : Int)?,
+                         endPosition : (x: Int, y: Int)?,
+                         letter : Letter,
+                         game : (board: Board?, list: LetterList?)) -> Move {
+        if startPosition != nil && endPosition != nil && game.board != nil {
+            let letter : PlacedLetter = PlacedLetter(position: startPosition!,
+                                                     letter: Character(letter.letter))
+            return BoardToBoardMove(origin: PlacedLetter(position: startPosition!,
+                                                         letter: Character(letter.letter)),
+                                    destination: endPosition!,
+                                    board: game.board!)
+        }
+        else if startPosition == nil && endPosition != nil && game.board != nil && game.list != nil{
+            return LetterListToBoardMove(letter: letter,
+                                         destination: endPosition!,
+                                         board: game.board!,
+                                         list: game.list!)
+        }
+        else if startPosition != nil && endPosition == nil && game.list != nil {
+            return BoardToLetterListMove(letter: PlacedLetter(position: startPosition!,
+                                                             letter: Character(letter.letter)),
+                                         board: game.board!,
+                                         list: game.list!)
+        }
+        fatalError("Invalid Move Arguments")
+    }
 
-    //}
-
-    //class func buildAndExecuteMove(startPosition : (x : Int?, y : Int?)?,
-      //                             endPosition : (x: Int?, y: Int?)?,
-        //                           letter : Letter) -> Bool {
-
-    //}
-//}
+    class func buildAndExecuteMove(startPosition : (x : Int, y : Int)?,
+                                   endPosition : (x: Int, y: Int)?,
+                                   letter : Letter,
+                                   game : (board: Board?, list: LetterList?)) -> Bool {
+        return buildMove(startPosition,
+                         endPosition: endPosition,
+                         letter: letter,
+                         game : game).makeMove()
+    }
+}
 
 class BoardToBoardMove : AbstractMove {
 
@@ -49,6 +74,7 @@ class BoardToBoardMove : AbstractMove {
     override func makeMove() -> Bool {
         if board.canPlaceLetter((x: destination.x, y: destination.y)) &&
            board.placeLetter(PlacedLetter(position: destination, letter: Character(origin.letter))) {
+            board.remove(origin)
             execute(origin.position,
                     endPosition: destination,
                     letter: origin)
