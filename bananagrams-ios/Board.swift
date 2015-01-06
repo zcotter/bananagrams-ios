@@ -33,6 +33,11 @@ class Board {
         placedLetters = [PlacedLetter: [PlacedLetter]]()
         dictionary = WordDictionary()
     }
+
+    func touchLocationToBoardLocation(touch: (x: Int, y: Int), dimensions: (width: Int, height: Int)) -> (x: Int, y: Int){
+        return (x: touch.x / (dimension * dimensions.width),
+                y: touch.y / (dimension * dimensions.height))
+    }
     
     func canPlaceLetter(position: (x: Int, y: Int)) -> Bool{
         for letter in placedLetters.keys {
