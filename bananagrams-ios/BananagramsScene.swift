@@ -51,6 +51,7 @@ class BananagramsScene : SKScene {
     }
 
     func repaint(){
+        
         self.removeAllChildren()
         board.draw(self)
         letterList.draw(self)
@@ -109,9 +110,11 @@ class BananagramsScene : SKScene {
                                  board: board).makeMove()
             }
             else {
+                println(boardDims)
+                println(startBoard)
                 BoardToLetterListMove(letter: board.getLetterAt(startBoard)!,
                                       board: board,
-                                      list: letterList)
+                                      list: letterList).makeMove()
             }
         }
         else {
@@ -126,7 +129,7 @@ class BananagramsScene : SKScene {
                     LetterListToBoardMove(letter: letter!,
                                           destination: endBoard,
                                           board: board,
-                                          list: letterList)
+                                          list: letterList).makeMove()
                 }
             }
         }

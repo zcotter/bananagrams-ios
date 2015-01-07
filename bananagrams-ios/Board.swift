@@ -35,8 +35,8 @@ class Board {
     }
 
     func touchLocationToBoardLocation(touch: (x: Int, y: Int), dimensions: (width: Int, height: Int)) -> (x: Int, y: Int){
-        return (x: touch.x / (dimension * dimensions.width),
-                y: touch.y / (dimension * dimensions.height))
+        return (x: touch.x / (dimensions.width / dimension),
+                y: dimension - (touch.y / (dimensions.height / dimension)) - 1)
     }
     
     func canPlaceLetter(position: (x: Int, y: Int)) -> Bool{
@@ -49,7 +49,9 @@ class Board {
     }
     
     func placeLetter(letter: PlacedLetter) -> Bool {
+        println("placeLetter")
         if canPlaceLetter(letter.position) {
+            println("placed")
             let adjacents = getAdjacents(letter.position)
             placedLetters[letter] = adjacents
             for adjacent in adjacents {
@@ -128,6 +130,8 @@ class Board {
                     validateFrom(adjacent)
                 }
             }
+            println("delete")
+            target.toSpriteNode().removeFromParent()
             return true
         }
         else {
