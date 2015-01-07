@@ -82,7 +82,6 @@ class BananagramsScene : SKScene {
         }
         let x = xSum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
         let y = ySum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
-        println("First touch: \(x), \(y)")
         firstTouch = (x: x, y: y)
     }
 
@@ -95,7 +94,6 @@ class BananagramsScene : SKScene {
         }
         let x = xSum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
         let y = ySum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
-        println("Second touch: \(x), \(y)")
         handleDrag(firstTouch!, end: (x: x, y: y))
     }
 
@@ -110,8 +108,6 @@ class BananagramsScene : SKScene {
                                  board: board).makeMove()
             }
             else {
-                println(boardDims)
-                println(startBoard)
                 BoardToLetterListMove(letter: board.getLetterAt(startBoard)!,
                                       board: board,
                                       list: letterList).makeMove()

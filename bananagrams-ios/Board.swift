@@ -49,9 +49,7 @@ class Board {
     }
     
     func placeLetter(letter: PlacedLetter) -> Bool {
-        println("placeLetter")
         if canPlaceLetter(letter.position) {
-            println("placed")
             let adjacents = getAdjacents(letter.position)
             placedLetters[letter] = adjacents
             for adjacent in adjacents {
@@ -130,7 +128,6 @@ class Board {
                     validateFrom(adjacent)
                 }
             }
-            println("delete")
             target.toSpriteNode().removeFromParent()
             return true
         }

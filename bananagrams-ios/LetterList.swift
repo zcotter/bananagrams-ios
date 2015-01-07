@@ -95,8 +95,8 @@ class LetterList {
     }
 
     func touchPositionToGridPosition(touch: (x: Int, y: Int), dimensions: (width: Int, height: Int, yOffset: Int)) -> (x: Int, y: Int){
-        let x = touch.x / (lettersPerRow * dimensions.width)
-        let y = (touch.y - dimensions.yOffset) / (numberOfRows * dimensions.height)
+        let x = touch.x / (dimensions.width / lettersPerRow)
+        let y = numberOfRows - 1 - ((touch.y - dimensions.yOffset) / (dimensions.height / numberOfRows))
         return (x: x, y: y)
     }
 }
