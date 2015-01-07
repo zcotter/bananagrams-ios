@@ -78,15 +78,18 @@ class LetterList {
     func draw(scene : BananagramsScene) {
         for x in 0...9 {
             for y in 0...1 {
-                var letterNode : SKSpriteNode = letters[y * 10 + x].toSpriteNode()
-                let width = scene.letterListWidth / lettersPerRow
-                let height = scene.letterListHeight / numberOfRows
-                letterNode.size = CGSize(width: width,
-                                         height: height)
-                letterNode.position = CGPoint(x: x * width,
-                                              y: y * height)
-                letterNode.anchorPoint = CGPoint(x: 0, y: 0)
-                scene.addChild(letterNode)
+                let index = y * 10 + x
+                if index < length {
+                    var letterNode : SKSpriteNode = letters[index].toSpriteNode()
+                    let width = scene.letterListWidth / lettersPerRow
+                    let height = scene.letterListHeight / numberOfRows
+                    letterNode.size = CGSize(width: width,
+                                             height: height)
+                    letterNode.position = CGPoint(x: x * width,
+                                                  y: y * height)
+                    letterNode.anchorPoint = CGPoint(x: 0, y: 0)
+                    scene.addChild(letterNode)
+                }
             }
         }
     }
