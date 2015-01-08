@@ -10,8 +10,6 @@ class BananagramsController: UIViewController {
         let scene = BananagramsScene(size: view.bounds.size)
         let skView = view as SKView
 
-        skView.showsFPS = true
-        skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .ResizeFill
         skView.presentScene(scene)
