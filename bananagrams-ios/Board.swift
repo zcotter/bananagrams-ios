@@ -176,10 +176,17 @@ class Board {
             let height = scene.boardHeight / dimension
             letterNode.size = CGSize(width: width,
                                      height: height)
-            letterNode.position = CGPoint(x: letter.position.x * width,
-                                          y: letter.position.y * height + scene.letterListHeight)
+            let xPos = letter.position.x * width
+            let yPos = letter.position.y * height + scene.letterListHeight
+            letterNode.position = CGPoint(x: xPos,
+                                          y: yPos)
             letterNode.anchorPoint = CGPoint(x: 0, y: 0)
             scene.addChild(letterNode)
+            if !letter.valid{
+                var box : SKShapeNode = SKShapeNode(rect: CGRect(x: xPos, y: yPos, width: width, height: height))
+                box.strokeColor = UIColor.redColor()
+                scene.addChild(box)
+            }
         }
     }
 }
