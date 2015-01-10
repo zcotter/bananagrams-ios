@@ -305,7 +305,7 @@ class bananagrams_iosTests: XCTestCase {
             board: board,
             list: list)
         XCTAssert(bToLPass2.makeMove())
-        XCTAssert(board.valid == true)
+        XCTAssert(board.valid == false)
 
         list = LetterList()
         list.addLetter(Letter(letter: "e"))

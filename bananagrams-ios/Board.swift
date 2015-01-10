@@ -114,7 +114,6 @@ class Board {
     }
 
     func remove(target : PlacedLetter) -> Bool {
-        println("remove")
         if(placedLetters[target] != nil){
             var adjacents = placedLetters[target]!
             placedLetters[target] = nil
@@ -123,13 +122,10 @@ class Board {
                     (letter) in letter != target
                 }
             }
-            //if(placedLetters[target] != nil){
-                adjacents = getAdjacents(target.position)
-                for adjacent in adjacents {
-                    println(adjacent.description())
-                    validateFrom(adjacent)
-                }
-            //}
+            adjacents = getAdjacents(target.position)
+            for adjacent in adjacents {
+                validateFrom(adjacent)
+            }
             target.toSpriteNode().removeFromParent()
             return true
         }
@@ -139,12 +135,10 @@ class Board {
     }
     
     func getAdjacents(position: (x: Int, y: Int)) -> [PlacedLetter] {
-        println("Adjacencies")
         var adjacents : [PlacedLetter] = []
         for letter in placedLetters.keys {
             let xDiff = abs(position.x - letter.position.x)
             let yDiff = abs(position.y - letter.position.y)
-            println("\(xDiff), \(yDiff)")
             if ((xDiff == 1 && yDiff == 0) || (xDiff == 0 && yDiff == 1)) {
                 adjacents.append(letter)
             }
@@ -175,7 +169,6 @@ class Board {
     func draw(scene : BananagramsScene) {
         for letter in placedLetters.keys {
             var letterNode : SKSpriteNode = letter.toSpriteNode()
-            letterNode.position = CGPoint(x: 10, y: 10)
             let width = scene.boardWidth / dimension
             let height = scene.boardHeight / dimension
             letterNode.size = CGSize(width: width,

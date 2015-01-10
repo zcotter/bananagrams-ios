@@ -6,6 +6,8 @@ class BananagramsScene : SKScene {
     var board = Board()
     var letterList = LetterList()
     var firstTouch : (x: Int, y: Int)?
+    var currentLetterNode : SKSpriteNode? = nil
+    var firstMove = false
     var width: Int {
         get {
             return self.size.width.description.componentsSeparatedByString(".")[0].toInt()!
@@ -73,18 +75,56 @@ class BananagramsScene : SKScene {
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        var xSum = CGFloat(0)
-        var ySum = CGFloat(0)
-        for t in touches {
-            xSum = xSum.advancedBy(CGFloat(t.locationInView!(view! as SKView).x))
-            ySum = ySum.advancedBy(CGFloat(t.locationInView!(view! as SKView).y))
+        firstTouch = getTouchFromSet(touches)
+        if touchInBoard(firstTouch!){
+            let boardTouch = board.touchLocationToBoardLocation(firstTouch!, dimensions: (width: boardWidth, height: boardHeight))
+            let currentLetter = board.getLetterAt(boardTouch)
+            if currentLetter != nil {
+                currentLetterNode = currentLetter!.toSpriteNode()
+            }
         }
-        let x = xSum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
-        let y = ySum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
-        firstTouch = (x: x, y: y)
+        else {
+            let letterLocation = letterList.touchPositionToGridPosition(firstTouch!,
+                dimensions: (width: letterListWidth,
+                    height: letterListHeight,
+                    yOffset: boardHeight))
+            let currentLetter = letterList.getLetterAtGridPosition(letterLocation)
+            if currentLetter != nil {
+                currentLetterNode = currentLetter!.toSpriteNode()
+            }
+        }
+        firstMove = true
+    }
+
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        let touch = getTouchFromSet(touches)
+        if currentLetterNode != nil {
+            let width = boardWidth / board.dimension
+            let height = boardHeight / board.dimension
+            currentLetterNode!.size = CGSize(width: width,
+            height: height)
+            let xPos = touch.x
+            let yPos = abs(touch.y - self.height)
+            println(yPos)
+            currentLetterNode!.position = CGPoint(x: xPos,
+                                                  y: yPos)
+            //currentLetterNode!.anchorPoint = CGPoint(x: 0, y: 0)
+            if firstMove {
+                addChild(currentLetterNode!)
+                firstMove = false
+            }
+        }
     }
 
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        handleDrag(firstTouch!, end: getTouchFromSet(touches))
+        if currentLetterNode != nil {
+            currentLetterNode!.removeFromParent()
+        }
+        currentLetterNode = nil
+    }
+
+    private func getTouchFromSet(touches: NSSet) -> (x: Int, y: Int){
         var xSum = CGFloat(0)
         var ySum = CGFloat(0)
         for t in touches {
@@ -93,7 +133,7 @@ class BananagramsScene : SKScene {
         }
         let x = xSum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
         let y = ySum.description.componentsSeparatedByString(".")[0].toInt()! / touches.count
-        handleDrag(firstTouch!, end: (x: x, y: y))
+        return (x: x, y: y)
     }
 
     func handleDrag(start: (x: Int, y: Int), end: (x: Int, y: Int)) {
