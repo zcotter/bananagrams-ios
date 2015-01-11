@@ -105,7 +105,6 @@ class BananagramsScene : SKScene {
             height: height)
             let xPos = touch.x
             let yPos = abs(touch.y - self.height)
-            println(yPos)
             currentLetterNode!.position = CGPoint(x: xPos,
                                                   y: yPos)
             //currentLetterNode!.anchorPoint = CGPoint(x: 0, y: 0)
